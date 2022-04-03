@@ -1,11 +1,31 @@
 <!-- BEGIN_TF_DOCS -->
 
+# About this module
+this module create a Postgres Flexible managed db in azure provider using terraform.
+
+# Usage Example
+
+        module "managed_db" {
+        source                = "./Modules/ManagedDB"
+        managed_db_admin_password        = var.managed_db_password
+        managed_db_admin_user_name       = var.managed_db_admin_user_name
+        managed_db_name                  = "managed-postgres"
+        private_dns_link_name            = "managed-db"
+        private_dns_name                 = "managed-db"
+        resource_group_name              = azurerm_resource_group.db_rsg.name
+        resource_group_location          = var.location
+        subnet_id                        = azurerm_subnet.Managed_DB_Server_subnet.id
+        vnet_id                          = module.vnet.vnet_id
+        env_prefix                       = var.env_prefix
+        tags                             = var.tags
+      }
+
+
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
-
 
 
 ## Resources
@@ -39,6 +59,6 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_managed_db_id"></a> [managed\_db\_id](#output\_managed\_db\_id) | n/a |
-| <a name="output_managed_db_name"></a> [managed\_db\_name](#output\_managed\_db\_name) | n/a |
+| <a name="output_managed_db_id"></a> [managed\_db\_id](#output\_managed\_db\_id) | outputs managed db resource id  |
+| <a name="output_managed_db_name"></a> [managed\_db\_name](#output\_managed\_db\_name) | outputs managed db name |
 <!-- END_TF_DOCS -->

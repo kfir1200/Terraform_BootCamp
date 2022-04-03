@@ -16,8 +16,9 @@ this module create a Virtul Machine in azure provider using terraform.
         instance_count          = var.vm_count
         env_prefix              = var.env_prefix
         tags                    = var.tags
-        associate_load_balancer = true
-        lb_backend_address_id   = module.lb.lb_backend_id
+        associate_load_balancer = false # change to true if you want to associate load balancer with this vm 
+        associate_public_ip     = false # change to true if you want to associate public ip with his vm 
+        lb_backend_address_id   = module.lb.lb_backend_id # if associate_load_balancer is true then this value in mandatory
         vm_type = var.vm_type
       }
 

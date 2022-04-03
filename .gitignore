@@ -1,0 +1,17 @@
+
+# ignore Local .terraform directories
+**/.terraform/*
+
+#ignore .tvfars files
+*.tfvars
+
+#ignore .tfstate files
+*.tfstate
+*.tfstate.*
+
+
+#ignore .terraform.lock
+.terraform.lock*
+
+#ignore .idea folder
+.idea/

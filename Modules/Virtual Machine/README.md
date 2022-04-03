@@ -1,7 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
 
 # About this module
-this module create a Virtul Machine in azure provider using terraform.
+this module creates a Virtul Machine in azure provider using terraform.
 
 # Usage Example
 

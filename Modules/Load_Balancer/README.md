@@ -1,17 +1,28 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
 
-No requirements.
+# About this module
+this module create a load balancer in azure provider using terraform.
+
+# Usage Example
+
+                  module "lb" {
+                  source = "./Modules/Load_Balancer"
+
+                  lb_backend_pool_name = "lb_backend-${var.env_prefix}"
+                  lb_frontend_ip_name  = "lb_frontend_ip-${var.env_prefix}"
+                  lb_health_name       = "lb_health-${var.env_prefix}"
+                  lb_name              = "lb-${var.env_prefix}"
+                  lb_rule_name         = "lb_rule-${var.env_prefix}"
+                  resource_group_name  = azurerm_resource_group.web_rsg.name
+                  resource_group_location = var.location
+                  tags = var.tags
+                }
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
-
-## Modules
-
-No modules.
 
 ## Resources
 
@@ -46,8 +57,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_lb_backend_id"></a> [lb\_backend\_id](#output\_lb\_backend\_id) | n/a |
-| <a name="output_lb_id"></a> [lb\_id](#output\_lb\_id) | n/a |
-| <a name="output_lb_name"></a> [lb\_name](#output\_lb\_name) | n/a |
-| <a name="output_lb_public_ip"></a> [lb\_public\_ip](#output\_lb\_public\_ip) | n/a |
+| <a name="output_lb_backend_id"></a> [lb\_backend\_id](#output\_lb\_backend\_id) | outputs load balancer backend  id |
+| <a name="output_lb_id"></a> [lb\_id](#output\_lb\_id) | outputs load balancer resource id |
+| <a name="output_lb_name"></a> [lb\_name](#output\_lb\_name) | outputs the name of the load balancer  |
+| <a name="output_lb_public_ip"></a> [lb\_public\_ip](#output\_lb\_public\_ip) | outputs the public ip of the load balancer |
 <!-- END_TF_DOCS -->

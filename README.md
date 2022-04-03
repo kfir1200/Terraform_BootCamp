@@ -41,7 +41,7 @@ each module have an information how to use the module.
         
 7. to create the infrastructure in production environment use those commands:
 
-        terraform workspace create prod
+        terraform workspace create production
         terraform workspace select production
         terraform plan -var-file="production.tfvars"
   

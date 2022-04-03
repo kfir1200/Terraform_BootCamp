@@ -5,6 +5,51 @@ In this project i used terraform to build this infrastructure for the WeightTrac
 
 ![WeightTracker infrastructure](https://bootcamp.rhinops.io/images/week-6-envs.png)
 
+each module have an information how to use the module.
+
+## How to use this project
+1. clone or download the project
+2. create a file `secret.auto.tfvars` with those variables:
+
+        vm_password                    = ""
+        managed_db_password            = ""
+        my_external_ip                 = ""
+        managed_db_admin_user_name     = ""
+        admin_user_name                = ""
+3. create a file `staging.tfvars` with those variables: 
+
+        env_prefix = ""
+        vm_count   = 
+        location = ""
+        vm_type = ""
+        subnet_prefixes = [""]
+        managed_db_subnet_prefixes = [""]
+        source_address_prefix = ""
+
+        tags = {
+          Environment : "Staging"
+        }
+      
+4. create a file `prodction.tfvars` with the same variables in step 3.
+
+5. edit the values in steps 2-4 according to your credentials.
+6. to create the  infrastructure in staging environment use those commands:
+
+        terraform workspace create staging
+        terraform workspace select staging
+        terraform plan -var-file="staging.tfvars"
+        
+7. to create the infrastructure in production environment use those commands:
+
+        terraform workspace create prod
+        terraform workspace select production
+        terraform plan -var-file="production.tfvars"
+  
+
+
+
+
+
 ## Requirements
 
 | Name | Version |
@@ -66,9 +111,9 @@ In this project i used terraform to build this infrastructure for the WeightTrac
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ansible_vm_public_ip_address"></a> [ansible\_vm\_public\_ip\_address](#output\_ansible\_vm\_public\_ip\_address) | n/a |
-| <a name="output_web_vm_password"></a> [web\_vm\_password](#output\_web\_vm\_password) | n/a |
-| <a name="output_web_vm_private_ip_address"></a> [web\_vm\_private\_ip\_address](#output\_web\_vm\_private\_ip\_address) | n/a |
+| <a name="output_ansible_vm_public_ip_address"></a> [ansible\_vm\_public\_ip\_address](#output\_ansible\_vm\_public\_ip\_address) | outputs vm public ip   |
+| <a name="output_web_vm_password"></a> [web\_vm\_password](#output\_web\_vm\_password) | outputs vm password |
+| <a name="output_web_vm_private_ip_address"></a> [web\_vm\_private\_ip\_address](#output\_web\_vm\_private\_ip\_address) | outputs vm private ip  |
 
 
 

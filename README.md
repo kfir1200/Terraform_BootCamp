@@ -1,7 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
 
 # About this project
-In this project i used terraform to build this infrastructure for the WeightTracker application project:
+In this project i used terraform to build this infrastructure for the ![weight tracker application](https://github.com/kfir1200/bootcamp-app) project:
 
 ![WeightTracker infrastructure](https://bootcamp.rhinops.io/images/week-6-envs.png)
 
